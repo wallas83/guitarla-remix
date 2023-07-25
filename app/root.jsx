@@ -5,20 +5,28 @@
 // }
 import {
     Meta,
-    Links
+    Links,
+    Outlet
 } from '@remix-run/react'
-import styles from './styles/index.css'
+// ~ este simbolo es como una forma que el archivo viene de app/ y lo demas 
+import styles from '~/styles/index.css'
+import Header from '~/components/header';
 // esto ayuda para el seo =>  puede busdcar sobre ello con remix
 export function meta() {
     return [
         { charset: "utf-8" },
         { title: "GuitarLA - Remix" },
         { name: "viewport", content: "width=device-width,initial-scale=1" },
-      ];
+    ];
 }
 // para usar los estilos se hace de esta manera
 export function links() {
-    return[
+    return [
+        {
+            rel: 'stylesheet',
+            href: 'https://necolas.github.io/normalize.css/8.0.1/normalize.css'
+        },
+
         {
             rel: 'stylesheet',
             href: styles
@@ -29,7 +37,8 @@ export function links() {
 export default function App() {
     return (
         <Document>
-            <h1>Hola mundis</h1>
+          <Outlet />
+          {/* <h1>asdds</h1> */}
         </Document>
     )
 }
@@ -38,11 +47,12 @@ function Document({ children }) {
     return (
         <html lang="es">
             <head>
-               <Meta/>
-               <Links/>
+                <Meta />
+                <Links />
             </head>
 
             <body>
+                <Header/>
                 {children}
             </body>
         </html>
