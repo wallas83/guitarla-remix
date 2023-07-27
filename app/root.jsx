@@ -55,7 +55,7 @@ function Document({ children }) {
                 
             </head>
 
-            <body>
+            <body suppressHydrationWarning={true}>
                 <Header/>
                 {children}
                 <Footer/>
