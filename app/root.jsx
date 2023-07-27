@@ -6,11 +6,14 @@
 import {
     Meta,
     Links,
-    Outlet
+    Outlet,
+    Scripts,
+    LiveReload
 } from '@remix-run/react'
-// ~ este simbolo es como una forma que el archivo viene de app/ y lo demas 
-import styles from '~/styles/index.css'
-import Header from '~/components/header';
+
+import styles from './styles/index.css'
+import Header from './components/header';
+import Footer from './components/footer';
 // esto ayuda para el seo =>  puede busdcar sobre ello con remix
 export function meta() {
     return [
@@ -49,11 +52,15 @@ function Document({ children }) {
             <head>
                 <Meta />
                 <Links />
+                
             </head>
 
             <body>
                 <Header/>
                 {children}
+                <Footer/>
+                <Scripts/>
+                <LiveReload/>
             </body>
         </html>
     )
